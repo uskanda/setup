@@ -1,0 +1,7 @@
+#!/bin/sh
+
+cd $(dirname $0)
+
+#install gems
+bundle install --path vendor/bundle
+
