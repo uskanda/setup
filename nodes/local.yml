@@ -1,0 +1,34 @@
+brew:
+  enable_update: false
+  enable_upgrade: false
+  add_repositories:
+    - homebrew/dupes
+    - homebrew/versions
+    - homebrew/binary
+    - peco/peco
+    - motemen/ghq
+  install_packages:
+    - caskroom/cask/brew-cask
+    - coreutils
+    - findutils
+    - zsh
+    - vim
+    - tmux
+    - git
+    - hub
+    - tig
+    - ghq
+    - imagemagick
+    - wget
+    - rsync
+    - curl
+    - openssl
+    - readline
+    - markdown
+    - jq
+    - peco
+    - redis
+  install_apps:
+    - google-chrome
+    - iterm2
+    - bettertouchtool

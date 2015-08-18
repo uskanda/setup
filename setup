@@ -5,3 +5,5 @@ cd $(dirname $0)
 #install gems
 bundle install --path vendor/bundle
 
+bundle exec itamae local recipes/setup.rb -y nodes/local.yml -l debug
+
