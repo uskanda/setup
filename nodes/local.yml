@@ -7,6 +7,7 @@ brew:
     - homebrew/binary
     - peco/peco
     - motemen/ghq
+    - neovim/homebrew-neovim
   install_packages:
     - caskroom/cask/brew-cask
     - coreutils
@@ -28,6 +29,8 @@ brew:
     - jq
     - peco
     - redis
+    - python3
+    - --HEAD neovim
   install_apps:
     - google-chrome
     - iterm2
