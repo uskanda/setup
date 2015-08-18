@@ -32,3 +32,6 @@ brew:
     - google-chrome
     - iterm2
     - bettertouchtool
+homesick:
+  castles:
+    - uskanda/dotfiles
