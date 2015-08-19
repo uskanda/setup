@@ -30,6 +30,7 @@ brew:
     - peco
     - redis
     - python3
+    - the_silver_searcher
     - --HEAD neovim
   install_apps:
     - google-chrome
