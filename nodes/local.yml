@@ -38,3 +38,4 @@ brew:
 homesick:
   castles:
     - uskanda/dotfiles
+login_shell: /usr/local/bin/zsh
