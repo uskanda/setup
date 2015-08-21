@@ -12,30 +12,45 @@ brew:
     - caskroom/cask/brew-cask
     - coreutils
     - findutils
+    - gawk
+    - autoconf
+    - readline
+    - openssl
     - zsh
-    - vim
+    - mosh
     - tmux
+    - reattach-to-user-namespace
+    - vim
+    - lv
     - git
     - hub
     - tig
     - ghq
+    - git-flow
     - imagemagick
     - wget
+    - w3m
     - rsync
     - curl
     - openssl
     - readline
     - markdown
     - jq
-    - peco
     - redis
+    - mongodb
+    - mysql
     - python3
     - the_silver_searcher
+    - android-sdk
     - --HEAD neovim
   install_apps:
     - google-chrome
     - iterm2
     - bettertouchtool
+    - alfred
+    - onepassword
+    - xbench
+    - vlc
 homesick:
   castles:
     - uskanda/dotfiles
