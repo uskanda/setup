@@ -28,8 +28,13 @@ execute "install ricty fonts" do
   not_if "find ~/Library/Fonts/ | grep -q 'Ricty'"
 end
 
+#python libraries
 #TODO: make python recipe
-execute "install python libraries" do
+execute "install powerline" do
   command "pip install powerline-status"
   not_if "pip list | grep 'powerline-status'"
+end
+execute "install psutil" do
+  command "pip install psutil"
+  not_if "pip list | grep 'psutil'"
 end
