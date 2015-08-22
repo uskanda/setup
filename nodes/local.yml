@@ -18,7 +18,7 @@ brew:
     - readline
     - openssl
     - zsh
-    - mosh
+    - mobile-shell
     - tmux
     - reattach-to-user-namespace
     - vim
@@ -40,6 +40,7 @@ brew:
     - redis
     - mongodb
     - mysql
+    - python
     - python3
     - the_silver_searcher
     - android-sdk

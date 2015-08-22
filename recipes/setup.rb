@@ -21,9 +21,15 @@ execute "change login shell" do
   not_if "env | grep -i 'SHELL' | grep -q '#{login_shell}'"
 end
 
-
+#TODO: support any version
 execute "install ricty fonts" do
   command "cp -f /usr/local/Cellar/ricty/3.2.4/share/fonts/Ricty*.ttf ~/Library/Fonts/;\
            fc-cache -vf"
   not_if "find ~/Library/Fonts/ | grep -q 'Ricty'"
+end
+
+#TODO: make python recipe
+execute "install python libraries" do
+  command "pip install powerline-status"
+  not_if "pip list | grep 'powerline-status'"
 end
