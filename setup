@@ -2,8 +2,17 @@
 
 cd $(dirname $0)
 
+if ! gem list | grep 'bundler' > /dev/null; then
+  sudo gem install bundler
+fi
+
+#TODO: use rbenv
+if ! gem list | grep 'homesick' > /dev/null; then
+  sudo gem install homesick
+fi
+
 #install gems
-bundle install --path vendor/bundle
+bundle install
 
 bundle exec itamae local recipes/setup.rb -y nodes/local.yml -l debug
 

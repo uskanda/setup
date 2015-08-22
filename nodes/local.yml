@@ -8,6 +8,7 @@ brew:
     - peco/peco
     - motemen/ghq
     - neovim/homebrew-neovim
+    - sanemat/font
   install_packages:
     - caskroom/cask/brew-cask
     - coreutils
@@ -43,12 +44,13 @@ brew:
     - the_silver_searcher
     - android-sdk
     - --HEAD neovim
+    - --powerline --vim-powerline ricty
   install_apps:
     - google-chrome
     - iterm2
     - bettertouchtool
     - alfred
-    - onepassword
+    - 1password
     - xbench
     - vlc
 homesick:

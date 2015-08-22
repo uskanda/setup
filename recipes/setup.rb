@@ -1,12 +1,6 @@
 include_recipe 'homebrew::package'
 include_recipe 'homebrew::cask'
 
-#homesick
-execute "Install homesick" do
-  command "gem install homesick"
-  not_if "test $(which homesick)"
-end
-
 node["homesick"]["castles"].each do |castle|
   castle_basename = File.basename(castle)
   execute "Add Castle" do
@@ -25,4 +19,11 @@ end
 execute "change login shell" do
   command "chsh -s #{login_shell}"
   not_if "env | grep -i 'SHELL' | grep -q '#{login_shell}'"
+end
+
+
+execute "install ricty fonts" do
+  command "cp -f /usr/local/Cellar/ricty/3.2.4/share/fonts/Ricty*.ttf ~/Library/Fonts/;\
+           fc-cache -vf"
+  not_if "find ~/Library/Fonts/ | grep -q 'Ricty'"
 end
