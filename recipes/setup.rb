@@ -40,3 +40,8 @@ execute "install psutil" do
   not_if "pip list | grep 'psutil'"
 end
 
+#enchancd
+execute "install enhancd" do
+  command "curl -L git.io/enhancd | sh"
+end
+
