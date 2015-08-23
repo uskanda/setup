@@ -1,5 +1,6 @@
 include_recipe 'homebrew::package'
 include_recipe 'homebrew::cask'
+include_recipe './fzf.rb'
 
 node["homesick"]["castles"].each do |castle|
   castle_basename = File.basename(castle)
@@ -38,3 +39,4 @@ execute "install psutil" do
   command "pip install psutil"
   not_if "pip list | grep 'psutil'"
 end
+
