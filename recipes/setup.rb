@@ -32,12 +32,12 @@ end
 #python libraries
 #TODO: make python recipe
 execute "install powerline" do
-  command "pip install powerline-status"
-  not_if "pip list | grep 'powerline-status'"
+  command "pip3 install powerline-status"
+  not_if "pip3 list | grep 'powerline-status'"
 end
 execute "install psutil" do
-  command "pip install psutil"
-  not_if "pip list | grep 'psutil'"
+  command "pip3 install psutil"
+  not_if "pip3 list | grep 'psutil'"
 end
 
 #enchancd
