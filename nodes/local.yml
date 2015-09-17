@@ -57,6 +57,7 @@ brew:
     - vlc
     - parallels-desktop
     - dropbox
+    - scroll-reverser
 homesick:
   castles:
     - uskanda/dotfiles
