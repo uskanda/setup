@@ -54,6 +54,7 @@ brew:
     - 1password
     - xbench
     - vlc
+    - parallels-desktop
 homesick:
   castles:
     - uskanda/dotfiles
