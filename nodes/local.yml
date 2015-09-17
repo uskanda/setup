@@ -29,6 +29,7 @@ brew:
     - ghq
     - git-flow
     - imagemagick
+    - expect
     - wget
     - w3m
     - rsync
