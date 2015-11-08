@@ -58,6 +58,7 @@ brew:
     - parallels-desktop
     - dropbox
     - scroll-reverser
+    - path-finder
 homesick:
   castles:
     - uskanda/dotfiles
