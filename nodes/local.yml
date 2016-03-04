@@ -60,6 +60,7 @@ brew:
     - scroll-reverser
     - path-finder
     - karabiner
+    - android-studio
 homesick:
   castles:
     - uskanda/dotfiles
