@@ -5,7 +5,6 @@ brew:
     - homebrew/dupes
     - homebrew/versions
     - homebrew/binary
-    - neovim/homebrew-neovim
     - sanemat/font
   install_packages:
     - caskroom/cask/brew-cask
@@ -43,7 +42,7 @@ brew:
     - python3
     - the_silver_searcher
     - android-sdk
-    - neovim
+    - neovim/neovim/neovim
     - --powerline --vim-powerline ricty
   install_apps:
     - google-chrome
