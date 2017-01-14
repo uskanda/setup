@@ -5,8 +5,6 @@ brew:
     - homebrew/dupes
     - homebrew/versions
     - homebrew/binary
-    - peco/peco
-    - motemen/ghq
     - neovim/homebrew-neovim
     - sanemat/font
   install_packages:
