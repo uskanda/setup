@@ -1,9 +1,0 @@
-group-minimum:
-  packages:
-    - git
-    - vim
-    - zsh
-    - expect
-homesick:
-  castles:
-    - uskanda/dotfiles

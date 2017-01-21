@@ -19,7 +19,14 @@ node["homesick"]["castles"].each do |castle|
   end
 end
 
-%w[minimum].each do |group_name|
+%w[minimum source-build].each do |group_name|
+  node["group-#{group_name}"]["apt-repositories"] ||= []
+  node["group-#{group_name}"]["apt-repositories"].each do |repo_name|
+    execute "add apt repository #{repo_name}" do
+      command "add-apt-repository #{repo_name}; apt-get update"
+      not_if "ls /etc/apt/sources.list.d | grep -q #{repo_name.match(/:(.*)\//)[1]}"
+    end
+  end
   node["group-#{group_name}"]["packages"].each do |package_name|
     package package_name do
       action :install
