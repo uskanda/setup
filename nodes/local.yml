@@ -58,6 +58,8 @@ brew:
     - path-finder
     - karabiner
     - android-studio
+    - virtualbox
+    - virtualbox-extension-pack
 homesick:
   castles:
     - uskanda/dotfiles
