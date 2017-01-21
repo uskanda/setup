@@ -19,11 +19,11 @@ node["homesick"]["castles"].each do |castle|
   end
 end
 
-
-packages = %w[vim]
-packages.each do |package_name|
-  package package_name do
-    action :install
+%w[minimum].each do |group_name|
+  node["group-#{group_name}"]["packages"].each do |package_name|
+    package package_name do
+      action :install
+    end
   end
 end
 

@@ -1,3 +1,8 @@
+group-minimum:
+  packages:
+    - git
+    - vim
+    - zsh
 homesick:
   castles:
     - uskanda/dotfiles
