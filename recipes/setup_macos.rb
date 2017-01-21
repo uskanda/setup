@@ -9,6 +9,8 @@ node["homesick"]["castles"].each do |castle|
   end
 end
 
+include_recipe './fzf.rb'
+
 login_shell = node["login_shell"]
 execute "add login shell to /etc/shells" do
   user "root"
