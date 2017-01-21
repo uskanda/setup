@@ -5,6 +5,9 @@ group-minimum:
     - zsh
     - expect
     - software-properties-common
+group-rich:
+  packages:
+    - powerline
 group-source-build:
   apt-repositories:
     - ppa:neovim-ppa/unstable

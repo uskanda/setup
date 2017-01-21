@@ -6,7 +6,7 @@ end
 
 include_recipe "./homeshick.rb"
 
-%w[minimum source-build].each do |group_name|
+%w[minimum rich source-build].each do |group_name|
   node["group-#{group_name}"]["apt-repositories"] ||= []
   node["group-#{group_name}"]["apt-repositories"].each do |repo_name|
     execute "add apt repository #{repo_name}" do
