@@ -1,5 +1,4 @@
-include_recipe 'homebrew::package'
-include_recipe 'homebrew::cask'
+include_recipe './homebrew.rb'
 include_recipe './fzf.rb'
 
 node["homesick"]["castles"].each do |castle|
