@@ -1,11 +1,13 @@
-include_recipe './fzf.rb'
+# Now this recipe is only supported for Ubuntu.
+execute "apt-get-update" do
+  command "apt-get update"
+  only_if "exit $(( `stat -c %Y /var/lib/apt/lists` > (`date +%s` - 86400) ))"
+end
 
-node["homesick"]["castles"].each do |castle|
-  castle_basename = File.basename(castle)
-  execute "Add Castle" do
-    command "homesick clone #{castle};\
-             homesick symlink #{castle_basename}"
-    not_if "homesick list | grep -q '#{castle_basename}'"
+packages = %w[vim]
+packages.each do |package_name|
+  package package_name do
+    action :install
   end
 end
 
