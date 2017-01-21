@@ -28,19 +28,30 @@ else
 end
 
 # Add Repository
+tmpfile=`mktemp`
+unless node['brew']['add_repositories'].empty? then
+  execute "Make Temporary Brew Tap" do
+    command "brew tap > #{tmpfile}"
+  end
+end
 node['brew']['add_repositories'].each do |repo|
   execute "Add Repository: #{repo}" do
     command "brew tap #{repo}"
-    not_if "brew tap | grep -q #{repo}"
+    not_if "grep -q #{repo} #{tmpfile}"
   end
 end
 
 # Install bin packages
+unless node['brew']['install_packages'].empty? then
+  execute "Make Temporary Brew list" do
+    command "brew list > #{tmpfile}"
+  end
+end
 node['brew']['install_packages'].each do |package|
   package_without_options = package.split(/[ \/]/).last
   execute "Install package: #{package_without_options}" do
     command "brew install #{package}"
-    not_if "brew list | grep -q '#{package_without_options}$'"
+    not_if "grep -q '#{package_without_options}$' #{tmpfile}"
   end
 end
 
