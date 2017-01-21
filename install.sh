@@ -12,7 +12,7 @@ bin/install-mitamae
 
 #execute itamae
 if [ "$(uname)" == 'Darwin' ]; then
-  bin/mitamae local recipes/setup_macos.rb -y nodes/local.yml -l debug
+  bin/mitamae local recipes/setup_macos.rb -y nodes/macos.yml $MITAMAE_OPTS
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   bin/mitamae local recipes/setup_linux.rb -y nodes/linux.yml $MITAMAE_OPTS
 else
