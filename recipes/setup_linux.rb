@@ -19,6 +19,13 @@ include_recipe "./homeshick.rb"
       action :install
     end
   end
+  node["group-#{group_name}"]["pip3-packages"] ||= []
+  node["group-#{group_name}"]["pip3-packages"].each do |package_name|
+    execute package_name do
+        command "pip3 install --user #{package_name}"
+        not_if "pip3 list | grep -q #{package_name}"
+    end
+  end
 end
 
 include_recipe "./fzf.rb"
