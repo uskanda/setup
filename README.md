@@ -6,7 +6,7 @@ Installation
 
 ```sh
 git clone https://github.com/uskanda/setup/
-sudo sh ./install.sh
+./install.sh
 ```
 
 TODO: online install 

@@ -1,3 +1,4 @@
+#!/bin/bash
 bin/install-mitamae
 
 #execute itamae
