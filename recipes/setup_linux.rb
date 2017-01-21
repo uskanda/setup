@@ -27,3 +27,10 @@ end
   end
 end
 
+execute "Change login shell to Zsh (PLEASE TYPE YOUR PASSWORD)" do
+  command "chsh -s `which zsh`"
+  not_if "echo $SHELL | grep -q zsh"
+end
+
+
+
