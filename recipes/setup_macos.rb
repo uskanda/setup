@@ -1,5 +1,4 @@
 include_recipe './homebrew.rb'
-include_recipe './fzf.rb'
 
 node["homesick"]["castles"].each do |castle|
   castle_basename = File.basename(castle)

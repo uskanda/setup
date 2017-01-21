@@ -1,3 +1,4 @@
+# now use homebrew in macos
 git "fzf" do
   repository "https://github.com/junegunn/fzf.git"
   destination ENV["HOME"] + "/.fzf"

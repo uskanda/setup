@@ -42,6 +42,7 @@ brew:
     - python3
     - the_silver_searcher
     - android-sdk
+    - fzf
     - neovim/neovim/neovim
     - --powerline --vim-powerline ricty
   install_apps:
