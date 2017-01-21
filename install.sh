@@ -1,4 +1,7 @@
 #!/bin/bash
+
+cd $(dirname $0)
+
 bin/install-mitamae
 
 #execute itamae
