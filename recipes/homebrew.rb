@@ -62,10 +62,15 @@ end
 
 # Install apps
 install_apps = node['brew']['install_apps']
+unless install_apps.empty? then
+  execute "Make Temporary brew cask list" do
+    command "brew cask list > #{tmpfile}"
+  end
+end
 install_apps.each do |app|
   execute "Install application: #{app}" do
     command "brew cask install #{app} --appdir=\'/Applications\'"
-    not_if "brew cask list | grep -q #{app}"
+    not_if "grep -q #{app} #{tmpfile}"
   end
 end
 
