@@ -4,8 +4,8 @@ git "fzf" do
   destination ENV["HOME"] + "/.fzf"
 end
 
-#TODO: To answer interactive questions automatically like expect
 #TODO: not_if conditions
 execute "install fzf" do
-  command ENV["HOME"] + "/.fzf/install"
+  command ENV["HOME"] + "/.fzf/install --all"
+  not_if "type fzf"
 end
