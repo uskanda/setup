@@ -6,7 +6,7 @@ end
 
 include_recipe "./homeshick.rb"
 
-%w[minimum source-build].each do |group_name|
+%w[minimum rich source-build].each do |group_name|
   node["group-#{group_name}"]["apt-repositories"] ||= []
   node["group-#{group_name}"]["apt-repositories"].each do |repo_name|
     execute "add apt repository #{repo_name}" do
@@ -17,6 +17,13 @@ include_recipe "./homeshick.rb"
   node["group-#{group_name}"]["packages"].each do |package_name|
     package package_name do
       action :install
+    end
+  end
+  node["group-#{group_name}"]["pip3-packages"] ||= []
+  node["group-#{group_name}"]["pip3-packages"].each do |package_name|
+    execute package_name do
+        command "pip3 install --user #{package_name}"
+        not_if "pip3 list | grep -q #{package_name}"
     end
   end
 end
