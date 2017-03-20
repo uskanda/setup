@@ -1,6 +1,5 @@
 include_recipe './homebrew.rb'
 include_recipe './homeshick.rb'
-include_recipe './fzf.rb'
 
 login_shell = node["login_shell"]
 unless ENV["SHELL"] == login_shell then
@@ -13,13 +12,6 @@ unless ENV["SHELL"] == login_shell then
         command "chsh -s #{login_shell}"
         not_if "env | grep -i 'SHELL' | grep -q '#{login_shell}'"
     end
-end
-
-#TODO: support any version
-execute "install ricty fonts" do
-    command "cp -f /usr/local/Cellar/ricty/3.2.4/share/fonts/Ricty*.ttf ~/Library/Fonts/;\
-           fc-cache -vf"
-    not_if "find ~/Library/Fonts/ | grep -q 'Ricty'"
 end
 
 #python libraries

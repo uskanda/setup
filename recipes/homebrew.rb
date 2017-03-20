@@ -29,48 +29,42 @@ end
 
 # Add Repository
 tmpfile=`mktemp`
-unless node['brew']['add_repositories'].empty? then
-  execute "Make Temporary Brew Tap" do
-    command "brew tap > #{tmpfile}"
-  end
-end
-node['brew']['add_repositories'].each do |repo|
-  execute "Add Repository: #{repo}" do
-    command "brew tap #{repo}"
-    not_if "grep -q #{repo} #{tmpfile}"
+if node['brew']['add_repositories'] && !node['brew']['add_repositories'].empty? then
+  #execute "Make Temporary Brew Tap" do
+  #  command "brew tap > #{tmpfile}"
+  #end
+  system "brew tap > #{tmpfile}"
+  node['brew']['add_repositories'].each do |repo|
+    execute "Add Repository: #{repo}" do
+      command "brew tap #{repo}"
+      not_if "grep -q #{repo} #{tmpfile}"
+    end
   end
 end
 
 # Install bin packages
-unless node['brew']['install_packages'].empty? then
-  execute "Make Temporary Brew list" do
-    command "brew list > #{tmpfile}"
+tmpfile_packages=`mktemp`
+if node['brew']['install_packages'] && !node['brew']['install_packages'].empty? then
+  system "brew list > #{tmpfile_packages}"
+  node['brew']['install_packages'].each do |package|
+    package_without_options = package.split(/[ \/]/).last
+    execute "Install package: #{package_without_options}" do
+      command "brew install #{package}"
+      not_if "grep -q '#{package_without_options}$' #{tmpfile_packages}"
+    end
   end
-end
-node['brew']['install_packages'].each do |package|
-  package_without_options = package.split(/[ \/]/).last
-  execute "Install package: #{package_without_options}" do
-    command "brew install #{package}"
-    not_if "grep -q '#{package_without_options}$' #{tmpfile}"
-  end
-end
-
-execute 'Install brew-cask' do
-  command 'brew install caskroom/cask/brew-cask'
-  not_if 'brew list | grep -q brew-cask'
 end
 
 # Install apps
+tmpfile_casks=`mktemp`
 install_apps = node['brew']['install_apps']
 unless install_apps.empty? then
-  execute "Make Temporary brew cask list" do
-    command "brew cask list > #{tmpfile}"
-  end
-end
-install_apps.each do |app|
-  execute "Install application: #{app}" do
-    command "brew cask install #{app} --appdir=\'/Applications\'"
-    not_if "grep -q #{app} #{tmpfile}"
+  system "brew cask list > #{tmpfile_casks}"
+  install_apps.each do |app|
+    execute "Install application: #{app}" do
+      command "brew cask install #{app} --appdir=\'/Applications\'"
+      not_if "grep -q #{app} #{tmpfile_casks}"
+    end
   end
 end
 

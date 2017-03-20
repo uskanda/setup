@@ -3,9 +3,7 @@ brew:
   enable_upgrade: false
   add_repositories:
     - homebrew/dupes
-    - sanemat/font
   install_packages:
-    - caskroom/cask/brew-cask
     - coreutils
     - findutils
     - gawk
@@ -39,26 +37,15 @@ brew:
     - python
     - python3
     - the_silver_searcher
-    - android-sdk
     - homeshick
     - neovim/neovim/neovim
-    - --powerline --vim-powerline ricty
-    - ffmpeg --with-fdk-aac --with-ffplay --with-freetype --with-libass --with-libquvi --with-libvorbis --with-libvpx --with-opus --with-x265
     - node
   install_apps:
+    - cmd-eikana
     - google-chrome
     - iterm2
     - bettertouchtool
     - alfred
-    - 1password
-    - xbench
-    - vlc
-    - parallels-desktop
-    - dropbox
-    - scroll-reverser
-    - path-finder
-    - karabiner
-    - android-studio
     - virtualbox
     - virtualbox-extension-pack
 homesick:

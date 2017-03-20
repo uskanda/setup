@@ -1,3 +1,5 @@
+return unless node["homesick"]
+
 home_dir = ENV["HOME"]
 homeshick_dir = "#{home_dir}/.homesick/repos/homeshick"
 git homeshick_dir do

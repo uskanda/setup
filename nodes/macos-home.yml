@@ -1,0 +1,15 @@
+brew:
+  enable_update: false
+  enable_upgrade: false
+  add_repocitories:
+  install_packages:
+  install_apps:
+    - 1password
+    - xbench
+    - vlc
+    - parallels-desktop
+    - dropbox
+    - onedrive
+    - scroll-reverser
+    - path-finder
+    - android-studio
