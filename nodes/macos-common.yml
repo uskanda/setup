@@ -11,6 +11,7 @@ brew:
     - readline
     - openssl
     - zsh
+    - peco
     - mobile-shell
     - tmux
     - reattach-to-user-namespace
