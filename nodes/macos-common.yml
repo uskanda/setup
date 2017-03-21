@@ -41,6 +41,7 @@ brew:
     - homeshick
     - neovim/neovim/neovim
     - node
+    - yarn
   install_apps:
     - cmd-eikana
     - google-chrome
