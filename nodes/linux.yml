@@ -2,7 +2,7 @@ group-minimum:
   packages:
     - git
     - vim
-    - zsh
+    - fish
     - expect
     - software-properties-common
 group-rich:

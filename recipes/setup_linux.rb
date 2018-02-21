@@ -30,8 +30,8 @@ end
 
 include_recipe "./fzf.rb"
 
-execute "Change login shell to Zsh (PLEASE TYPE YOUR PASSWORD)" do
-  command "chsh -s `which zsh`"
-  not_if "echo $SHELL | grep -q zsh"
+execute "Change login shell to fish (PLEASE TYPE YOUR PASSWORD)" do
+  command "chsh -s `which fish`"
+  not_if "echo $SHELL | grep -q fish"
 end
 

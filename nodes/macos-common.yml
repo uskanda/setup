@@ -10,7 +10,7 @@ brew:
     - autoconf
     - readline
     - openssl
-    - zsh
+    - fish
     - peco
     - mobile-shell
     - tmux
@@ -50,7 +50,8 @@ brew:
     - alfred
     - virtualbox
     - virtualbox-extension-pack
+    - visual-studio-code
 homesick:
   castles:
     - uskanda/dotfiles
-login_shell: /usr/local/bin/zsh
+login_shell: /usr/local/bin/fish
