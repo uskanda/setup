@@ -43,7 +43,7 @@ brew:
     - node
     - yarn
   install_apps:
-    - cmd-eikana
+    - karabiner-elements
     - google-chrome
     - iterm2
     - bettertouchtool
