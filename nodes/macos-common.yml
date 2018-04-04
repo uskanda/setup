@@ -11,7 +11,7 @@ brew:
     - readline
     - openssl
     - fish
-    - peco
+    - fzf
     - mobile-shell
     - tmux
     - reattach-to-user-namespace
@@ -32,14 +32,8 @@ brew:
     - readline
     - markdown
     - jq
-    - redis
-    - mongodb
-    - mysql
-    - python
-    - python3
     - the_silver_searcher
     - homeshick
-    - neovim/neovim/neovim
     - node
     - yarn
   install_apps:
