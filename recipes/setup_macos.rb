@@ -14,14 +14,3 @@ unless ENV["SHELL"] == login_shell then
     end
 end
 
-#python libraries
-#TODO: make python recipe
-execute "install powerline" do
-    command "pip3 install powerline-status"
-    not_if "pip3 list | grep 'powerline-status'"
-end
-execute "install psutil" do
-    command "pip3 install psutil"
-    not_if "pip3 list | grep 'psutil'"
-end
-
