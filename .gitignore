@@ -1,5 +1,1 @@
-.bundle/
-vendor/
-Gemfile.lock
-bin/mitamae
-bin/mitamae-*
+Brewfile.lock.json

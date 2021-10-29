@@ -1,25 +1,35 @@
 #!/bin/bash
-while getopts da OPT
-do
-  case $OPT in
-    "d" ) MITAMAE_OPTS="-l debug" ;;
-    "a" ) INSTALL_ALL=true ;;
-  esac
-done
 
-cd $(dirname $0)
-
-bin/install-mitamae
-
-#execute itamae
-if [ "$(uname)" == 'Darwin' ]; then
-  bin/mitamae local recipes/setup_macos.rb -y nodes/macos-common.yml $MITAMAE_OPTS
-  if [ $INSTALL_ALL ]; then
-       bin/mitamae local recipes/setup_macos.rb -y nodes/macos-home.yml $MITAMAE_OPTS
-  fi
-elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
-  bin/mitamae local recipes/setup_linux.rb -y nodes/linux.yml $MITAMAE_OPTS
-else
-  echo "Your platform ($(uname -a)) is not supported."
-  exit 1
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew -v > /dev/null 2>&1
+if [ $? -eq 127 ]; then
+    echo "Homebrew is not installed. Install Homebrew...\n"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
+echo "Install Homebrew bundles..."
+brew bundle
+echo "Done."
+
+grep `which fish` /etc/shells
+echo "Check Default Shell..."
+if [ $? = 0 ]; then
+    echo "Default shell is already fish."
+else
+    echo "Change default shell.."
+    echo `which fish` | sudo tee -a /etc/shells
+    chsh -s `which fish`
+    echo "Done."
+fi
+
+echo "Clone Homeshick..."
+homeshick clone git@github.com:uskanda/dotfiles.git
+echo "Done."
+
+# Write MacOS Defaults
+# Enable keyrepeat
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# Todo
+# install source-han-code-jp automatically
